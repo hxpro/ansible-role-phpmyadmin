@@ -1,0 +1,52 @@
+---
+- name: Check role variables
+  assert:
+    that:
+      - pma_blowfish_secret is defined
+    msg: "Please read the role documentation, if you still cannot understand why role failed, add your issue."
+
+- name: install packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - git
+    - composer
+  tags:
+    - install
+
+- name: clone phpmyadmin
+  git:                                               
+    repo=https://github.com/phpmyadmin/phpmyadmin.git
+    version=STABLE
+    dest="{{ pma_install_path }}"                 
+    force=yes
+    accept_hostkey=yes
+  register: pma_source
+  tags:
+    - deploy
+
+#TODO use composer with right version of PHP, could be managed by symlink in profile.d
+- name: Composer update
+  composer:
+    command=update
+    working_dir={{ pma_install_path }}
+  when: pma_source.changed
+  tags:
+    - deploy
+
+- name: config phpmyadmin
+  template:
+    src=config.inc.php.j2
+    dest="{{ pma_install_path }}/config.inc.php"
+  tags:
+    - config
+
+- name: nginx config
+  template:
+    src=nginx.conf.j2
+    dest=/etc/nginx/conf.d/phpmyadmin.conf
+  notify: reload nginx
+  tags:
+    - config
+

@@ -1,0 +1,11 @@
+---
+pma_server_name: localhost
+#pma_ssl_cert: /path/to/ssl/cert.pem
+#pma_ssl_cert_key: /path/to/ssl/key.pem
+pma_install_path: /var/www/html/phpmyadmin
+pma_phpfpm_listen: "{{ phpfpm_default_listen }}"
+pma_max_navigation_items: 500
+#pma_blowfish_secret:
+pma_cfg_servers: []
+pma_allow_from:
+  - 127.0.0.1

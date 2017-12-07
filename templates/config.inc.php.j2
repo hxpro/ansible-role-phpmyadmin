@@ -1,0 +1,19 @@
+<?php
+
+$cfg['MaxNavigationItems'] = {{ pma_max_navigation_items }};
+
+$i = 1;
+
+{% for cfg in pma_cfg_servers %}
+
+$cfg['Servers'][$i]['verbose'] = '{{ cfg.verbose }}';
+$cfg['Servers'][$i]['host'] = '{{ cfg.host }}';
+$cfg['Servers'][$i]['port'] = '{{ cfg.port | default('') }}';
+$cfg['Servers'][$i]['socket'] = '{{ cfg.socket | default('') }}';
+$cfg['Servers'][$i]['connect_type'] = '{{ cfg.connect_type | default('tcp') }}';
+$cfg['Servers'][$i]['auth_type'] = '{{ cfg.auth_type | default('cookie') }}';
+
+$i++;
+{% endfor %}
+
+$cfg['blowfish_secret'] = '{{ pma_blowfish_secret }}';

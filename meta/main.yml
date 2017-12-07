@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Matěj Koudelka
+  description: phpMyAdmin is a free software tool written in PHP, intended to handle the administration of MySQL over the Web
+
+  license: license (WTFPL)
+
+  min_ansible_version: 2.2
+
+  platforms:
+    - name: EL
+      versions:
+        - 7
+
+  galaxy_tags: []
+
+dependencies:
+  - name: hxpro.nginx
