@@ -2,6 +2,10 @@
 
 $cfg['MaxNavigationItems'] = {{ pma_max_navigation_items }};
 
+$cfg['ThemeManager'] = True;
+$cfg['ThemePerServer'] = True;
+$cfg['ThemeDefault'] = '{{ pma_default_theme }}';
+
 $i = 1;
 
 {% for cfg in pma_cfg_servers %}

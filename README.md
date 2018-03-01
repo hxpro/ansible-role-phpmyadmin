@@ -16,6 +16,7 @@ Role Variables
     pma_cfg_servers: []
     pma_allow_from:
       - 127.0.0.1
+    pma_default_theme: 'pmahomme'
 
 Dependencies
 ------------
