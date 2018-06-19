@@ -15,3 +15,5 @@ galaxy_info:
 
 dependencies:
   - name: hxpro.nginx
+  - name: hxpro.phpfpm
+  - name: hxpro.selinux
