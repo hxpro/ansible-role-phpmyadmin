@@ -2,6 +2,8 @@
 pma_server_name: localhost
 #pma_ssl_cert: /path/to/ssl/cert.pem
 #pma_ssl_cert_key: /path/to/ssl/key.pem
+#pma_nginx_access_log: /var/log/nginx/mysql_access.log
+#pma_nginx_error_log: /var/log/nginx/mysql_error.log
 pma_install_path: /var/www/html/phpmyadmin
 pma_phpfpm_listen: "{{ phpfpm_default_listen }}"
 pma_max_navigation_items: 500

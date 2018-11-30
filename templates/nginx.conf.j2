@@ -22,10 +22,17 @@ server {
     server_name {{ pma_server_name }};
 {% endif %}
 
+{% if pma_nginx_error_log is defined %}
+    error_log {{ pma_nginx_error_log }};
+{% endif %}
+{% if pma_nginx_access_log is defined %}
+    access_log {{ pma_nginx_access_log }};
+{% endif %}
+
 {% for from in pma_allow_from %}
-   allow {{ from }};
+    allow {{ from }};
 {% endfor %}
-   deny all;
+    deny all;
 
     root {{ pma_install_path }};
     index index.php index.html index.htm;
