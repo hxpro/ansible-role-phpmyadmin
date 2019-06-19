@@ -2,6 +2,9 @@
 
 $cfg['MaxNavigationItems'] = {{ pma_max_navigation_items }};
 
+$cfg['LoginCookieValidity'] = 86400;
+ini_set('session.gc_maxlifetime', 86400);
+
 $cfg['ThemeManager'] = True;
 $cfg['ThemePerServer'] = True;
 $cfg['ThemeDefault'] = '{{ pma_default_theme }}';
