@@ -49,7 +49,7 @@
     group: "{{ phpfpm_group }}"
     owner: "{{ phpfpm_user }}"
     state: directory
-  when: selinux
+  when: selinux|bool
   tags:
     - deploy
 
