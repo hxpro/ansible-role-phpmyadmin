@@ -12,11 +12,10 @@ server {
 }
 
 server {
-    listen  443; 
+    listen  443 ssl;
 {% if nginx_ipv6 %}
-    listen [::]:443;
+    listen [::]:443 ssl;
 {% endif %}
-    ssl on;
     ssl_certificate {{ pma_ssl_cert }};
     ssl_certificate_key {{ pma_ssl_cert_key }};
     server_name {{ pma_server_name }};
