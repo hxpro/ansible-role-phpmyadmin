@@ -16,10 +16,10 @@
     - install
 
 - name: clone phpmyadmin
-  git:                                               
+  git:
     repo=https://github.com/phpmyadmin/phpmyadmin.git
     version=STABLE
-    dest="{{ pma_install_path }}"                 
+    dest="{{ pma_install_path }}"
     force=yes
     accept_hostkey=yes
   register: pma_source
