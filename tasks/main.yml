@@ -35,6 +35,14 @@
   tags:
     - deploy
 
+- name: Yarn
+  yarn:
+    production: True
+    path: "{{ pma_install_path }}"
+  when: pma_source.changed
+  tags:
+    - deploy
+
 - name: config phpmyadmin
   template:
     src=config.inc.php.j2
