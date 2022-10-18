@@ -24,3 +24,4 @@ $i++;
 {% endfor %}
 
 $cfg['blowfish_secret'] = '{{ pma_blowfish_secret }}';
+$cfg['AllowUserDropDatabase'] = {{ pma_allow_user_drop_database | bool }};

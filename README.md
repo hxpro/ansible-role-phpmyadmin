@@ -15,6 +15,7 @@ Role Variables
     pma_phpfpm_listen: "{{ phpfpm_default_listen }}"
     pma_max_navigation_items: 500
     pma_blowfish_secret: 'YOU MUST FILL IN THIS FOR COOKIE AUTH!'
+    pma_allow_user_drop_database: False
     pma_cfg_servers: []
     pma_allow_from:
       - 127.0.0.1
